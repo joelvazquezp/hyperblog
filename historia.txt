@@ -1,2 +1,7 @@
 hola a todos
-estoy añadiendo nuevamente 
+este es un archivo de prueba
+
+estoy aprendiendo a usar gitHub
+
+
+agregué nueva linea
