@@ -1,0 +1,363 @@
+Git y Github
+
+	crea repositorio
+		git init 	
+	
+	ver estado de archivos en mi fichero		
+		git status		
+	
+	lleva a catch (está en memoria ram)
+		git add		
+		git add. añade todo
+			
+	le elimina de catch	
+		git rm 	--catch		
+	
+	envia al repositorio
+		git commit -m "mensaje"		
+	
+	archivos de configuración
+		git config			
+	
+		git --global user.name "nombre"
+
+		git --global user.email "correo"
+	
+	
+	git status		buena practica
+	
+	se ven todos los cambios de un archivo
+	
+		git log
+		
+	últimos cambios
+	
+		git show
+			commit <<nombre del commit>>  <versión>
+			
+	Diferencia entre commits
+	
+		diff <commit más reciente>> <<commit más antiguo>>
+		
+	Traer versión anterior
+	
+		directorio > staging > repositorio
+					git add		
+								commit -m "mensaje"
+		untracked
+		con add está tracked
+		con commit todos lo ven trakeado en el repositorio
+		
+		
+	volver a version anterior
+	
+		git reset   <<archivo>>   --hard 		(elimina todos los cambios)
+		
+		git reset  <<archivo>>	 --soft			mantiene el staging
+		
+	
+	diferencia entre directorio actual y el staging
+		git diff
+		
+	
+	para ver los cambios
+	
+		checkout  <<codigo del commit>> <<archivo>>
+		
+	ver cambios de un archivo
+		git log --stat
+		
+		
+	eliminar archivos sin eleminar su historial en el sistema de versiones	
+		
+		git rm  << >>
+				
+		git rm --catched elimina de Staging 
+		
+		git rm --force  elimina de git y del disco duro 
+		
+	eliminar cambios permanentemente
+	
+		git reset --hard
+		git reset --soft
+		git reset HEAD 	saca del area de Staging. 
+		
+	Traer datos de servidor remoto
+		
+		git clone url
+		
+	traer 	a repositorio local
+		
+		git fetch 		solo a repositorio local
+		
+		git merge		copia a archivos
+		
+		git pull		hace ambos. tener el actualizado
+		
+		
+	Ramas
+		HEAD indica la versión de commit que veo
+				
+	add a archivos que no sean nuevos
+	
+		git commit -am
+		
+	Crear rama  (se crea dsede el lugar donde estoy)
+	
+		git status
+	
+		git show
+	
+		el lugar donde estoy
+	
+	Crear rama
+		
+		git branch <nombre de rama>
+		git branch <cabecera>
+		
+		el HEAD apunta a master y a la cabecera
+	
+	Cambiar a branch 
+
+		git chekout <<otra rama>>
+		
+	 -------------------------hacer add y commit para no perder los cambios -------------------
+	 
+	 
+	 
+	 hacer merge de ramas
+	 
+		git checkout master 	para que el merge se haga sobre master
+		git merge <cabecera>   en master
+		
+	caso de comflicto  (Mismas lineas cambiadas)
+	
+		status master merging
+		
+		
+	
+		<<<<< HEAD          	(dónde hacía el merge)
+		------------
+		>>>>> "cabecera"		(lo que quería cambiar)
+		
+		Visual Studio Code  hace automático
+		
+		Luego hay que eliminar los códigos de conflicto y dejar lo que quiero 
+		
+	
+	Github
+		
+		README
+		
+	Raw		archivo plano
+	blame	quién hizo los cambios
+	
+	agregar origen remoto
+	
+		git remote add origin  <<direccipon remota>>
+		
+		git remote -v 		origen para fetch y para push 
+		
+		git push origin  master   enviar al origen la rama master
+		
+	Primero integrar remoto y local
+	
+		git pull origin master
+		
+		git pull origin master --allow-unrelated-histories
+		
+
+------------------------LLaves -------------------------------------------------
+
+	Llaves públicas y privadas
+	
+		se cifra con llave pública  y se descifra con llave privadas
+		
+	Cifrado SSH
+	
+	Crerar llave privada y pública en computadora
+	
+	enviar pública a github
+	
+	se puede generar de cualquier parte, pero lo correcto es estar en el home
+	
+		ssh-keygen -t rsa -b 4096 -C << correo del repositorio>> 
+		file para guardar llave
+		passphrase:  contraseña de llave
+		
+	Copiar llave pública a gitHub
+	
+	Revisar servidor de llaves encendido
+		eval $(ssh-agent -s)
+			Agent íd 4727
+			
+	Agregar llave a sistema
+		cd ~ 	mueve a directorio de home ~ tiene nombre de mi home
+		
+		ssh-add ~/.ssh/id_rsa
+			id_rsa 	id_rsa.pub
+			
+		ssh-add ~/.ssh/id_rsa
+			identidad añadida
+			
+	Copiar llave pública a github
+	
+		setting > SSH and GPG keys 
+		
+	añadir llave de gitHub a computadora
+		clone with SSH
+			copiar url 
+			
+		Cambiar url de remote 
+			git remote set-url origin  <pegar url >
+			
+			git remote -v 
+			
+	-------------------------------------------
+	Simepre hacer pull antes de subir cambios
+		git pull origin master
+		git status
+	----------------------------
+	
+	ver todos los cambios 
+		git log --all
+		git log --all  --graph
+		git log --all  --graph --decorate --oneline
+		
+	aliases
+	
+		alias arbolito = "git log --all  --graph --decorate --oneline"
+		
+	
+	TAG
+	
+	git tag -a v0.1 -m "<<tag>>"  <hash>      
+		tag: mensaje a colocar
+		hash: cambio en el que coloca
+		
+	ver tags 
+		git tag
+	
+	ver tag específico
+		git show-ref --tags
+		
+	git pull origin master
+	
+	Enviar tags
+		git push --tags
+		
+	Eliminar Tags
+		git tag
+		got tag -d <tag a eliminar>
+		
+	No se elimina de forma automática en Github
+		git push origin :refs/tags/<tag a eliminar>
+		
+	Enviar diferentes ramas al servidor
+	
+	
+	Comandos para ramas
+	
+		
+	git show branch
+	git show branch --all
+	gitk 
+	
+	git pull origin master
+	git chekout cabecera
+	git push origin cabecera    
+	
+		
+	
+	Clonar de internet 
+	
+		git clone <<enalce de clon>>
+		
+	
+	________________________________
+	
+	Archivos binarios no deberían agregarse a reposiorios 
+	aveces no se actualiza en seguida 
+	
+	Windos Ctr + Shif + R 
+			Crt +F5
+			
+	Fusionar ramas 
+	
+		git checkout master
+		git merge header -m  
+
+	Conflictos
+
+
+	 
+		Resolver conflictos 
+		
+		<<<<< "HEAD"        (cambio saliente)
+		
+		==========
+				     (cambio entrante)
+		>>>>> "header"
+	
+
+		git add .
+		git commit -m "   "
+		git push origin master
+
+
+ 
+	---es bueno 	 Bloquear a master 
+
+	pull request. no sube datos pero pide hacer cambios 
+
+	GitHub 
+	Cuando no es colaborador se colabora con un fork
+
+
+Múltiples entonrnos de trabajo en Git
+	Git Rebase: reorganizando el trabajo realizado
+	REbase toma una rama entera y la pega a la rama maestra sin que quede registro de la rama  
+	
+
+	Rebase a rama a eliminar luego a la master
+	desde la rama experiemto le hace rebase a master
+	---recomendable solo en repositorios locales porque cambia la historia de los cambios
+	git checkout  experimento
+
+	git rebase master	
+
+	git checout master
+	
+	git rebase experimento
+	
+	git branch -d experimento
+
+Git Stash: Guardar cambios en memoria y recuperarlos después
+		
+	guarda cambios en un lugar temporal (para poder moverme a otra rama sin perder los cambios)
+	
+		git stash
+	
+		git stash list    para ver lo stashiado
+		git stash pop 	  para regresar a los cambios stashiados
+
+		git stash drop 	  desechar el commit
+
+Git clean: Limpiar tu proyeco de archivos no deseados
+
+		Git clean --dry run
+
+	
+	
+		
+		
+	
+	
+			
+		
+	
+		
+	
+	
+	
+	
