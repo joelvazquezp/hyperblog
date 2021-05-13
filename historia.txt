@@ -12,3 +12,6 @@ master 2
  
 experimento 1 
 experimento 2 
+
+
+creditos: Joel Vázquez
