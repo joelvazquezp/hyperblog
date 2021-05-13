@@ -296,8 +296,8 @@ Git y Github
 		<<<<< "HEAD"        (cambio saliente)
 		
 		==========
-				     (cambio entrante)
-		>>>>> "header"
+				    	    (cambio entrante)
+		>>>>> "rama del cambio"
 	
 
 		git add .
@@ -345,7 +345,28 @@ Git Stash: Guardar cambios en memoria y recuperarlos después
 
 Git clean: Limpiar tu proyeco de archivos no deseados
 
-		Git clean --dry run
+		Git clean --dry-run  
+
+Git clean -f 	borra archivos repetidos y que no eran parte de 
+				mi repositorio
+
+No borra carpetas.
+
+Git cherry-pick  traer commits viejos al head de un branch
+
+	git stash 
+	git stash branch readme-mejorado
+
+	aún no se han hecho todos los cambios
+	se necesita traer solo un commit anterior
+
+git checkout master    Rama a la que se quiere traer los cambios
+
+git cherry-pick  commit		commit que se quiere traer
+
+
+
+
 
 	
 	
